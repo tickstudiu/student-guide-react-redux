@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import * as tools from '../utils';
-import * as actions from '../actions';
+import * as actions from '../redux/actions';
 import { DashText } from "../texts";
 import { DashNavbar, Navbar } from '../components';
 import { Container, Row, Col } from 'reactstrap';

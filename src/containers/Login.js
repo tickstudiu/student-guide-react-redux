@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import * as tools from '../utils';
-import * as actions from '../actions';
+import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
 
 import { Container } from 'reactstrap';

@@ -5,12 +5,17 @@ class SideNavbar extends Component{
     render(){
         return(
             <Nav vertical className="px-3">
-                <NavLink href="#" className="text-uppercase text-dark bg-white p-3">
+                <NavLink href="#" className="text-uppercase text-dark bg-white p-3 mb-4">
                     Link
                 </NavLink>
-                <NavLink href="#">Link</NavLink>
-                <NavLink href="#">Another Link</NavLink>
-                <NavLink disabled href="#">Disabled Link</NavLink>
+
+                <NavLink href="#" className="text-uppercase text-white p-3 mb-4">
+                    Link
+                </NavLink>
+
+                <NavLink href="#" className="text-uppercase text-white p-3 mb-4">
+                    Link
+                </NavLink>
             </Nav>
         )
     }

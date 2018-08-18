@@ -1,5 +1,5 @@
 import { CHANG_LANGUAGE } from '../actions/type';
-import * as tools from '../utils';
+import * as tools from '../../utils/index';
 
 export default (state = {}, action) => {
     switch (action.type) {
