@@ -72,9 +72,16 @@ class LoginForm extends Component{
             this.setState({
                 isOpen: true,
             });
+            setTimeout(this.onDismiss, 3000);
         }
         else{
             {/* to do */}
+        }
+    };
+
+    handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            this.handleSubmit()
         }
     };
 
@@ -86,7 +93,7 @@ class LoginForm extends Component{
     render(){
         const { login, email, loginTo, Remem, newHere, SignIn } = this.props.text;
         const { isOpen } = this.state;
-        const { handleChange, handleSubmit, onDismiss } = this;
+        const { handleChange, handleSubmit, onDismiss, handleKeyPress } = this;
 
         return(
             <div className="m-4 w-25">
@@ -111,7 +118,7 @@ class LoginForm extends Component{
                             <IconInput>
                                 <FontAwesomeIcon icon="lock" />
                             </IconInput>
-                            <Input type="password" name="pwd" placeholder="" className="bg-transparent border-top-0 border-left-0 border-right-0 pl-5 rounded-0" onChange={handleChange}/>
+                            <Input type="password" name="pwd" placeholder="" className="bg-transparent border-top-0 border-left-0 border-right-0 pl-5 rounded-0" onChange={handleChange} onKeyPress={handleKeyPress}/>
                         </FormGroup>
 
                         <a className="btn bg-dark text-white p-4 rounded-0 border-0 d-block" onClick={handleSubmit}>

@@ -1,11 +1,13 @@
 import React, {Component} from "react";
+import * as tools from '../utils';
+import * as actions from '../actions';
+import {connect} from 'react-redux';
+
 import { Container } from 'reactstrap';
 import { LoginForm, LoginNavbar } from '../components';
 import { LoginText } from '../texts';
 import styled, { keyframes } from 'styled-components';
-import * as tools from '../utils';
-import {connect} from 'react-redux';
-import * as actions from '../actions';
+
 
 const fadeIn = keyframes`
   0% {
