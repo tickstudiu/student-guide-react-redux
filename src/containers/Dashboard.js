@@ -36,10 +36,9 @@ class Dashboard extends Component{
     }
 }
 
-const mapStateToProps = ({hello, lang}) => {
+const mapStateToProps = ({ lang}) => {
     return {
         lang,
-        hello,
     }
 };
 

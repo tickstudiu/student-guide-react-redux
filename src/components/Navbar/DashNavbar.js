@@ -11,7 +11,7 @@ const Line = styled.hr`
 class DashNavbar extends Component{
     render(){
         return(
-            <div className="bg-dark" style={{minHeight: '100vh'}}>
+            <div style={{minHeight: '100vh', background: '#484d53'}}>
                 <ProfileCard
                     ProfileImage="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/600x600.jpg"
                     ProfileName="InwZa5555"
