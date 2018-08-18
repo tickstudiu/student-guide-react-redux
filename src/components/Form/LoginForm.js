@@ -40,7 +40,7 @@ const Title = styled.h2`
 
 const IconInput = styled.span`
     position: absolute;
-    margin-left: 5px;
+    margin-left: 15px;
     height: 38px;
     display: flex;
     align-items: center;
@@ -84,6 +84,7 @@ class LoginForm extends Component{
 
 
     render(){
+        const { login, email, loginTo, Remem, newHere, SignIn } = this.props.text;
         const { isOpen } = this.state;
         const { handleChange, handleSubmit, onDismiss } = this;
 
@@ -98,23 +99,23 @@ class LoginForm extends Component{
                     <CornerRight/>
 
                     <Form className="p-4 border">
-                        <Title>Login</Title>
+                        <Title>{login}</Title>
                         <FormGroup>
                             <IconInput>
                                 <FontAwesomeIcon icon="envelope" />
                             </IconInput>
-                            <Input type="email" name="email" placeholder="Email address" className="bg-transparent border-top-0 border-left-0 border-right-0 pl-4 rounded-0" onChange={handleChange}/>
+                            <Input type="email" name="email" placeholder={email} className="bg-transparent border-top-0 border-left-0 border-right-0 pl-5 rounded-0" onChange={handleChange}/>
                         </FormGroup>
 
                         <FormGroup>
                             <IconInput>
                                 <FontAwesomeIcon icon="lock" />
                             </IconInput>
-                            <Input type="password" name="pwd" placeholder="" className="bg-transparent border-top-0 border-left-0 border-right-0 pl-4 rounded-0" onChange={handleChange}/>
+                            <Input type="password" name="pwd" placeholder="" className="bg-transparent border-top-0 border-left-0 border-right-0 pl-5 rounded-0" onChange={handleChange}/>
                         </FormGroup>
 
                         <a className="btn bg-dark text-white p-4 rounded-0 border-0 d-block" onClick={handleSubmit}>
-                            <h5 className="m-0">Login to your account</h5>
+                            <h5 className="m-0">{loginTo}</h5>
                         </a>
 
                         <div>
@@ -123,13 +124,13 @@ class LoginForm extends Component{
                                     <FormGroup check>
                                         <Input type="checkbox" />
                                         <FormText>
-                                            Remember me
+                                            {Remem}
                                         </FormText>
                                     </FormGroup>
                                 </Col>
                                 <Col>
                                     <FormText className="text-right">
-                                        New here? <Link to="/">Sign in!</Link>
+                                        {newHere} <Link to="/">{SignIn}!</Link>
                                     </FormText>
                                 </Col>
                             </Row>
