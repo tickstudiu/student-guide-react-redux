@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import { connect } from 'react-redux';
 import * as tools from '../utils';
 import * as actions from '../redux/actions';
-import {connect} from 'react-redux';
 
 import { Container } from 'reactstrap';
 import { LoginForm, LoginNavbar } from '../components';

@@ -31,7 +31,7 @@ class Navbar extends Component {
 
     render() {
         return (
-            <Nav className="justify-content-end align-items-center shadow">
+            <Nav className="justify-content-end align-items-center">
                 <NavLink><EmptyBox/></NavLink>
 
 

@@ -10,6 +10,8 @@ const Line = styled.hr`
 
 class DashNavbar extends Component{
     render(){
+        const { staticText } = this.props;
+
         return(
             <div style={{minHeight: '100vh', background: '#484d53'}}>
                 <ProfileCard
@@ -18,7 +20,7 @@ class DashNavbar extends Component{
                     ProfileDescription="Wanchalerm Suksawat."
                 />
                 <Line/>
-                <SideNavbar/>
+                <SideNavbar staticText={staticText}/>
             </div>
         )
     }
