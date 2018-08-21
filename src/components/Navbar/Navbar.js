@@ -31,7 +31,7 @@ class Navbar extends Component {
 
     render() {
         return (
-            <Nav className="justify-content-end align-items-center">
+            <Nav className="justify-content-end align-items-center bg-white">
                 <NavLink><EmptyBox/></NavLink>
 
 
@@ -41,7 +41,7 @@ class Navbar extends Component {
 
                         <NavLink href="#" className="border rounded-circle position-relative mr-3 text-dark">
                             <FontAwesomeIcon icon="comment-dots"/>
-                            <Badge color="danger" className="position-absolute" style={{top: '-5px', right: '-5px'}}>1</Badge>
+                            <Badge color="success" className="position-absolute" style={{top: '-5px', right: '-5px'}}>1</Badge>
                         </NavLink>
 
                     </DropdownToggle>
@@ -57,7 +57,7 @@ class Navbar extends Component {
 
                 <NavLink href="#" className="border rounded-circle position-relative mr-3 text-dark">
                     <FontAwesomeIcon icon="bell"/>
-                    <Badge color="danger" className="position-absolute" style={{top: '-5px', right: '-5px'}}>4</Badge>
+                    <Badge color="primary" className="position-absolute" style={{top: '-5px', right: '-5px'}}>4</Badge>
                 </NavLink>
 
                 <NavLink href="#" className="border rounded-circle position-relative mr-3 text-dark">

@@ -5,3 +5,4 @@ export { default as DashNavbar } from './Navbar/DashNavbar';
 export { default as Navbar } from './Navbar/Navbar';
 export { default as ProfileCard } from './Card/ProfileCard';
 export { default as OverViewMedia } from './Media/OverViewMedia';
+export { default as UserMedia } from './Media/UserMedia';

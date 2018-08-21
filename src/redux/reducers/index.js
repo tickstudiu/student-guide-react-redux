@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux';
 
 import languageReducer from './languageReducer';
 import hello from './helloReducer';

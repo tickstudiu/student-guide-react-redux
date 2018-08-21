@@ -121,7 +121,7 @@ class LoginForm extends Component{
                             <Input type="password" name="pwd" placeholder="" className="bg-transparent border-top-0 border-left-0 border-right-0 pl-5 rounded-0" onChange={handleChange} onKeyPress={handleKeyPress}/>
                         </FormGroup>
 
-                        <a className="btn bg-dark text-white p-4 rounded-0 border-0 d-block" onClick={handleSubmit}>
+                        <a className="btn bg-dark text-white p-4 rounded-0 border-0 d-block" onClick={handleSubmit} >
                             <h5 className="m-0">{loginTo}</h5>
                         </a>
 
@@ -137,7 +137,7 @@ class LoginForm extends Component{
                                 </Col>
                                 <Col>
                                     <FormText className="text-right">
-                                        {newHere} <Link to="/">{SignIn}!</Link>
+                                        {newHere} <Link to="">{SignIn}!</Link>
                                     </FormText>
                                 </Col>
                             </Row>

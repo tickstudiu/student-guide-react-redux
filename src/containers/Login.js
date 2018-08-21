@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import * as tools from '../utils';
-import * as actions from '../redux/actions';
+import * as action  from '../redux/actions';
 
 import { Container } from 'reactstrap';
 import { LoginForm, LoginNavbar } from '../components';
@@ -32,13 +32,9 @@ const LoginBox = styled.div`
 
 
 class Login extends Component {
-    componentDidMount() {
-        this.props.fetchHello();
-    };
-
+    
     render() {
 
-        const { express } = this.props.hello;
         const lang = tools.getLanguage();
         const staticText = tools.checkLanguage(lang, LoginText);
 
@@ -47,20 +43,19 @@ class Login extends Component {
         return (
             <Container fluid className="p-0">
                 <LoginNavbar text={staticText}/>
+
                 <LoginBox>
                     <LoginForm text={staticText}/>
-                    {express}
                 </LoginBox>
             </Container>
         );
     }
 }
 
-const mapStateToProps = ({hello, lang}) => {
+const mapStateToProps = ({lang}) => {
     return {
         lang,
-        hello,
     }
 };
 
-export default connect(mapStateToProps, actions)(Login);
+export default connect(mapStateToProps, action)(Login);
