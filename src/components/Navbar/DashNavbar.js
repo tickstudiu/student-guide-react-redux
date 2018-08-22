@@ -13,7 +13,7 @@ class DashNavbar extends Component{
         const { staticText } = this.props;
 
         return(
-            <div style={{minHeight: '100vh', background: '#484d53'}}>
+            <div style={{minHeight: '100vh', background: '#484d53', height: '100%'}}>
                 <ProfileCard
                     ProfileImage="https://a3-images.myspacecdn.com/images03/1/240e42b5d9ce48a78983961e7fcb3c39/600x600.jpg"
                     ProfileName="InwZa5555"

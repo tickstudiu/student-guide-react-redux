@@ -11,8 +11,10 @@ class UserMedia extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            highlight: this.props.highlight,
             like: false,
-            follow: false
+            follow: false,
+            likeCount: '64',
         }
     }
 
@@ -31,11 +33,10 @@ class UserMedia extends Component {
 
     render() {
         const {handleToggleLike, handleToggleFollow} = this;
-        const {active, like, follow} = this.state;
+        const {highlight, like, follow, likeCount} = this.state;
 
-        console.log(active);
-        return (
-            <div>
+        if (highlight){
+            return (
                 <Media className="align-items-center rounded pr-4 mb-3" style={{
                     backgroundImage: `url(${Background})`,
                     backgroundSize: 'cover',
@@ -70,6 +71,10 @@ class UserMedia extends Component {
                         <Button size="sm" color="primary">Sand</Button>
                     </Media>
                 </Media>
+            )
+        }
+        else{
+            return(
                 <Media className="align-items-center p-3 border rounded mb-3 bg-white">
                     <Media left href="#" className="px-5">
                         <img
@@ -93,8 +98,8 @@ class UserMedia extends Component {
                         </div>
 
                         <div className="my-3">
-                            <p className="m-0 lead">asdfasdf</p>
-                            <small className="text-muted "><FontAwesomeIcon icon="map-marked"/> Phuket, pa tong</small>
+                            <p className="m-0 lead">English.</p>
+                            <small className="text-muted "><FontAwesomeIcon icon="map-marked"/> Phuket, pa tong <span className="text-danger">{likeCount} Likes</span></small>
                         </div>
 
                         <div className="d-flex justify-content-between align-items-center">
@@ -105,8 +110,9 @@ class UserMedia extends Component {
                         </div>
                     </Media>
                 </Media>
-            </div>
-        )
+            )
+        }
+
     }
 }
 

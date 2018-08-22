@@ -37,6 +37,9 @@ class Dashboard extends Component {
                             <Col md="9">
                                 <h5>Users</h5>
                                 <UserMedia/>
+                                <UserMedia highlight/>
+                                <UserMedia/>
+                                <UserMedia/>
                             </Col>
                         </Row>
                     </Col>
