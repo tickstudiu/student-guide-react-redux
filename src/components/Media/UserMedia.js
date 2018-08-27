@@ -15,6 +15,7 @@ class UserMedia extends Component {
             like: false,
             follow: false,
             likeCount: '64',
+            tourId: '1',
         }
     }
 
@@ -30,10 +31,22 @@ class UserMedia extends Component {
         })
     };
 
+    handleSubmit = (e) =>{
+        const { tourId } = this.state;
+        const guideId = e.target.id;
+        const tripId = e.target.value;
+        let payload = {
+            tripId: tripId,
+            tourId: tourId,
+            guideId: guideId,
+        };
+    };
+
 
     render() {
-        const {handleToggleLike, handleToggleFollow} = this;
-        const {highlight, like, follow, likeCount} = this.state;
+        const { id, name, year, languages, experience } = this.props.data;
+        const { handleToggleLike, handleToggleFollow, handleSubmit } = this;
+        const { highlight, like, follow, likeCount } = this.state;
 
         if (highlight){
             return (
@@ -50,13 +63,11 @@ class UserMedia extends Component {
                         />
                     </Media>
                     <Media body>
-                        <h5 className="text-white lead">Wanchalerm Suksawat <small
+                        <h5 className="text-white lead">{name} <small
                             className="text-white-50 text-uppercase">recommend</small></h5>
 
                         <p className="text-white">
-                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor aliqua...
-                            </small>
+                            <small>{experience}</small>
                         </p>
 
                         <ButtonGroup>
@@ -68,7 +79,7 @@ class UserMedia extends Component {
                     </Media>
 
                     <Media right>
-                        <Button size="sm" color="primary">Sand</Button>
+                        <Button color="dark" outline id={id} value="46521" onClick={(e) => handleSubmit(e)}>Send</Button>
                     </Media>
                 </Media>
             )
@@ -86,7 +97,7 @@ class UserMedia extends Component {
 
                     <Media body>
                         <div className="d-flex justify-content-between align-items-center">
-                            <small>Wanchalerm Suksawat <span
+                            <small>{name} <span
                                 className="text-dark text-uppercase text-black-50">recommend</span>
                             </small>
                             <ButtonGroup>
@@ -98,15 +109,13 @@ class UserMedia extends Component {
                         </div>
 
                         <div className="my-3">
-                            <p className="m-0 lead">English.</p>
+                            <p className="m-0 lead">{languages}.</p>
                             <small className="text-muted "><FontAwesomeIcon icon="map-marked"/> Phuket, pa tong <span className="text-danger">{likeCount} Likes</span></small>
                         </div>
 
                         <div className="d-flex justify-content-between align-items-center">
-                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor aliqua...
-                            </small>
-                            <Button size="sm" color="primary">Sand</Button>
+                            <small>{experience}</small>
+                            <Button size="sm" color="primary" id={id} value="46521" onClick={(e) => handleSubmit(e)}>Send</Button>
                         </div>
                     </Media>
                 </Media>

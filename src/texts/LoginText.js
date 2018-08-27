@@ -10,7 +10,7 @@ export const LoginText = {
     en: {
         login: "Login",
         email: "Email address",
-        loginTo: "Login to your account",
+        loginTo: "Login",
         Remem: "Remember me",
         newHere: "New here?",
         SignIn: "Sign in",

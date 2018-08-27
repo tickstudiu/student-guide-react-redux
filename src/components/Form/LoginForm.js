@@ -36,6 +36,7 @@ const CornerRight = styled.div`
 
 const Title = styled.h2`
     margin-bottom: 50px;
+    text-align: center;
 `;
 
 const IconInput = styled.span`
@@ -103,10 +104,9 @@ class LoginForm extends Component{
                 </Alert>
 
                 <div className="position-relative">
-                    <CornerRight/>
-
-                    <Form className="p-4 border">
-                        <Title>{login}</Title>
+                    <h2 className="display-4 text-center">Welcome to <br/>Unitour System</h2>
+                    <Form className="p-4 border bg-white shadow my-4">
+                        <h2 className="text-center mb-5 mt-2">{login}</h2>
                         <FormGroup>
                             <IconInput>
                                 <FontAwesomeIcon icon="envelope" />
@@ -122,7 +122,7 @@ class LoginForm extends Component{
                         </FormGroup>
 
                         <a className="btn bg-dark text-white p-4 rounded-0 border-0 d-block" onClick={handleSubmit} >
-                            <h5 className="m-0">{loginTo}</h5>
+                            <h5 className="m-0 text-uppercase">{loginTo}</h5>
                         </a>
 
                         <div>

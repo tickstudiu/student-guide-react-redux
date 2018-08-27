@@ -8,13 +8,15 @@ import { Container, Row, Col } from 'reactstrap';
 import { DashText } from "../texts";
 
 class Dashboard extends Component {
+
     componentDidMount() {
+        this.props.fetchStudentGuide();
         this.props.fetchOverView();
     };
 
-
     render() {
-        const { overviewStu } = this.props.overview;
+        const { studentGuideList } = this.props.guide;
+        const { overviewStudentList } = this.props.overview;
         const lang = tools.getLanguage();
         const staticText = tools.checkLanguage(lang, DashText);
 
@@ -30,16 +32,17 @@ class Dashboard extends Component {
                         <Row className="m-0 p-4">
                             <Col>
                                 <h5>{staticText.today}</h5>
-                                <OverViewMedia mediaList={overviewStu}/>
+                                <OverViewMedia mediaList={overviewStudentList}/>
                             </Col>
                         </Row>
                         <Row className="m-0 p-4">
                             <Col md="9">
                                 <h5>Users</h5>
-                                <UserMedia/>
-                                <UserMedia highlight/>
-                                <UserMedia/>
-                                <UserMedia/>
+                                {
+                                    studentGuideList.map((data, index) => {
+                                        return <UserMedia data={data} key={index} highlight={data.highlight} />
+                                    })
+                                }
                             </Col>
                         </Row>
                     </Col>
@@ -49,10 +52,11 @@ class Dashboard extends Component {
     }
 }
 
-const mapStateToProps = ({lang, overview}) => {
+const mapStateToProps = ({lang, overview, guide}) => {
     return {
         lang,
         overview,
+        guide,
     }
 };
 

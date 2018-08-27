@@ -7,6 +7,7 @@ import { Container } from 'reactstrap';
 import { LoginForm, LoginNavbar } from '../components';
 import { LoginText } from '../texts';
 import styled, { keyframes } from 'styled-components';
+import Background from '../assets/images/login-background.jpg';
 
 
 const fadeIn = keyframes`
@@ -41,9 +42,10 @@ class Login extends Component {
         console.log(lang);
 
         return (
-            <Container fluid className="p-0">
-                <LoginNavbar text={staticText}/>
-
+            <Container fluid className="p-0" style={{backgroundImage: `url(${Background})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}>
                 <LoginBox>
                     <LoginForm text={staticText}/>
                 </LoginBox>
