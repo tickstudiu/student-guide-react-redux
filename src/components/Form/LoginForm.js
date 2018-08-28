@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope , faLock } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope , faLock, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import {
     Form,
@@ -16,28 +16,7 @@ import {
     Alert,
 } from 'reactstrap';
 
-library.add(faEnvelope, faLock);
-
-const CornerRight = styled.div`
-    position: absolute;
-    top: -0.1rem;
-    right: -0.6rem;
-    
-    width: 0; 
-    height: 0; 
-    
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    
-    transform:rotateZ(45deg);
-    
-    border-bottom: 15px solid black;
-`;
-
-const Title = styled.h2`
-    margin-bottom: 50px;
-    text-align: center;
-`;
+library.add(faEnvelope, faLock, faTimesCircle);
 
 const IconInput = styled.span`
     position: absolute;
@@ -73,7 +52,7 @@ class LoginForm extends Component{
             this.setState({
                 isOpen: true,
             });
-            setTimeout(this.onDismiss, 3000);
+            setTimeout(this.onDismiss, 10000);
         }
         else{
             {/* to do */}
@@ -97,13 +76,25 @@ class LoginForm extends Component{
         const { handleChange, handleSubmit, onDismiss, handleKeyPress } = this;
 
         return(
-            <div className="m-4 w-25">
+            <div className="w-25">
 
-                <Alert color="danger" isOpen={isOpen} toggle={onDismiss} className="position-absolute fixed-bottom ml-4 mr-4">
-                    I am an alert and I can be dismissed!
+                <Alert isOpen={isOpen} fade={true} toggle={onDismiss}
+                       className="position-absolute rounded-0 bg-white text-dark border-0 shadow w-25"
+                       style={{top: '50px', right: '15px'}}>
+                    <section>
+                        <h4 className="alert-heading"><span className="text-danger"><FontAwesomeIcon icon="times-circle" /> </span>Well done!</h4>
+                        <p>
+                            Aww yeah, you successfully read this important alert message. This example text is going
+                            to run a bit longer so that you can see how spacing within an alert works with this kind
+                            of content.
+                        </p>
+                        <small className="mb-0 text-muted">
+                            Whenever you need to, be sure to use margin.
+                        </small>
+                    </section>
                 </Alert>
 
-                <div className="position-relative">
+                <div>
                     <h2 className="display-4 text-center">Welcome to <br/>Unitour System</h2>
                     <Form className="p-4 border bg-white shadow my-4">
                         <h2 className="text-center mb-5 mt-2">{login}</h2>

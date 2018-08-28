@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from 'react-redux';
+import React, {Component} from "react";
+import {connect} from 'react-redux';
 import * as tools from '../utils';
-import * as action  from '../redux/actions';
+import * as action from '../redux/actions';
 
-import { Container } from 'reactstrap';
-import { LoginForm, LoginNavbar } from '../components';
-import { LoginText } from '../texts';
-import styled, { keyframes } from 'styled-components';
+import {Container, Alert} from 'reactstrap';
+import {LoginForm} from '../components';
+import {LoginText} from '../texts';
+import styled, {keyframes} from 'styled-components';
 import Background from '../assets/images/login-background.jpg';
 
 
@@ -33,7 +33,7 @@ const LoginBox = styled.div`
 
 
 class Login extends Component {
-    
+
     render() {
 
         const lang = tools.getLanguage();
@@ -42,10 +42,12 @@ class Login extends Component {
         console.log(lang);
 
         return (
-            <Container fluid className="p-0" style={{backgroundImage: `url(${Background})`,
+            <Container fluid className="p-0" style={{
+                backgroundImage: `url(${Background})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>
+
                 <LoginBox>
                     <LoginForm text={staticText}/>
                 </LoginBox>
