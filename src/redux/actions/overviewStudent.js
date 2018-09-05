@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FETCH_OVER_VIEW } from './type';
+import { FETCH_OVER_VIEW } from '../type';
 
 const URL ='http://localhost:5000/api/student/overview/today';
 

@@ -1,4 +1,4 @@
-import { FETCH_STUDENT_GUIDE } from '../actions/type';
+import { FETCH_STUDENT_GUIDE } from '../type';
 
 const initalState = {
     studentGuideList: [],

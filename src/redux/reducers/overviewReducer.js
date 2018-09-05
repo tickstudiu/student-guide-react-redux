@@ -1,4 +1,4 @@
-import { FETCH_OVER_VIEW } from '../actions/type';
+import { FETCH_OVER_VIEW } from '../type';
 
 const initalState = {
     overviewStudentList: [],

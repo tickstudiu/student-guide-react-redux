@@ -4,6 +4,7 @@ import Promise from 'redux-promise';
 import {Provider} from 'react-redux';
 import reducers from './redux/reducers';
 import 'bootstrap/dist/css/bootstrap.css';
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import indexRoutes from "./routes";
 

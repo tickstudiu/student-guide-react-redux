@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import * as tools from '../../utils';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,7 +14,6 @@ import {
     FormText,
     Row,
     Col,
-    Alert,
 } from 'reactstrap';
 
 library.add(faEnvelope, faLock, faTimesCircle);
@@ -32,7 +32,6 @@ class LoginForm extends Component{
         this.state = {
             email: '',
             pwd: '',
-            isOpen: false,
         }
     }
 
@@ -49,10 +48,7 @@ class LoginForm extends Component{
     handleSubmit = () => {
         const {email, pwd} = this.state;
         if(email === '' || pwd === ''){
-            this.setState({
-                isOpen: true,
-            });
-            setTimeout(this.onDismiss, 10000);
+            tools.errorNotify("login fail");
         }
         else{
             {/* to do */}
@@ -65,35 +61,12 @@ class LoginForm extends Component{
         }
     };
 
-    onDismiss = () => {
-        this.setState({ isOpen: false });
-    };
-
-
     render(){
         const { login, email, loginTo, Remem, newHere, SignIn } = this.props.text;
-        const { isOpen } = this.state;
-        const { handleChange, handleSubmit, onDismiss, handleKeyPress } = this;
+        const { handleChange, handleSubmit, handleKeyPress } = this;
 
         return(
-            <div className="w-25">
-
-                <Alert isOpen={isOpen} fade={true} toggle={onDismiss}
-                       className="position-absolute rounded-0 bg-white text-dark border-0 shadow w-25"
-                       style={{top: '50px', right: '15px'}}>
-                    <section>
-                        <h4 className="alert-heading"><span className="text-danger"><FontAwesomeIcon icon="times-circle" /> </span>Well done!</h4>
-                        <p>
-                            Aww yeah, you successfully read this important alert message. This example text is going
-                            to run a bit longer so that you can see how spacing within an alert works with this kind
-                            of content.
-                        </p>
-                        <small className="mb-0 text-muted">
-                            Whenever you need to, be sure to use margin.
-                        </small>
-                    </section>
-                </Alert>
-
+            <div>
                 <div>
                     <h2 className="display-4 text-center">Welcome to <br/>Unitour System</h2>
                     <Form className="p-4 border bg-white shadow my-4">
@@ -128,7 +101,7 @@ class LoginForm extends Component{
                                 </Col>
                                 <Col>
                                     <FormText className="text-right">
-                                        {newHere} <Link to="">{SignIn}!</Link>
+                                        {newHere} <Link to="/register">{SignIn}!</Link>
                                     </FormText>
                                 </Col>
                             </Row>

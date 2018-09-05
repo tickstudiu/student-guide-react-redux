@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FETCH_STUDENT_GUIDE } from './type';
+import { FETCH_STUDENT_GUIDE } from '../type';
 
 const URL ='http://localhost:5000/api/student-guide';
 

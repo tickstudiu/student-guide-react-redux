@@ -1,4 +1,4 @@
-import { FETCH_HELLO } from '../actions/type';
+import { FETCH_HELLO } from '../type';
 
 const initalState = {
     express: '',

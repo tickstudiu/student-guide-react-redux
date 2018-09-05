@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as tools from '../utils';
 import * as action from '../redux/actions';
 
-import {Container, Alert} from 'reactstrap';
+import {Container} from 'reactstrap';
 import {LoginForm} from '../components';
 import {LoginText} from '../texts';
 import styled, {keyframes} from 'styled-components';
@@ -37,20 +37,20 @@ class Login extends Component {
     render() {
 
         const lang = tools.getLanguage();
-        const staticText = tools.checkLanguage(lang, LoginText);
-
-        console.log(lang);
+        const staticText = tools.checkLanguage(LoginText);
 
         return (
             <Container fluid className="p-0" style={{
                 backgroundImage: `url(${Background})`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center'
+                backgroundPosition: 'center',
+                minHeight: '100vh'
             }}>
 
                 <LoginBox>
                     <LoginForm text={staticText}/>
                 </LoginBox>
+
             </Container>
         );
     }
