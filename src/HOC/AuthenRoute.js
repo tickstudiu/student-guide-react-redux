@@ -6,18 +6,17 @@ import { ToastContainer } from 'react-toastify';
 import * as tools from "../utils";
 import * as actions from "../redux/actions";
 
-export const PrivateRoute = ComposedComponent => {
-    class PrivateRoute extends Component {
+export const AuthenRoute = ComposedComponent => {
+    class AuthenRoute extends Component {
         componentWillMount() {
             if (!tools.getLanguage()) {
                 tools.setDefaultLanguage();
             }
 
-            if (!tools.isAuth()) {
-                this.props.history.push("/login");
+            if (tools.isAuth()) {
+                this.props.history.push("/dashboard");
             }
         }
-
 
         render() {
             return (
@@ -28,11 +27,12 @@ export const PrivateRoute = ComposedComponent => {
             );
         }
     }
+
     const mapStateToProps = ({ lang }) => {
         return {
             lang
         };
     };
 
-    return connect(mapStateToProps, actions)(PrivateRoute);
+    return connect(mapStateToProps, actions)(AuthenRoute);
 };

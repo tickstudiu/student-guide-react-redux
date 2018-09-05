@@ -2,7 +2,8 @@ import App from '../containers/App';
 import Login from '../containers/Login';
 import Dash from '../containers/Dashboard';
 import Register from '../containers/Register';
-import { defaultHoc } from '../HOC';
+
+import { defaultHoc, PrivateRoute, PublicRoute, AuthenRoute} from '../HOC';
 
 let indexRoutes = [
     {
@@ -13,17 +14,17 @@ let indexRoutes = [
     {
         path: '/login',
         name: 'Login',
-        component: Login,
+        component: AuthenRoute(Login),
     },
     {
         path: '/dashboard',
         name: 'Dashboard',
-        component: Dash,
+        component: PrivateRoute(Dash),
     },
     {
         path: '/register',
         name: 'Register',
-        component: Register,
+        component: AuthenRoute(Register),
     },
 ];
 

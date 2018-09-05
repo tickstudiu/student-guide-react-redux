@@ -1,3 +1,4 @@
-export { default as PrivateRoute } from './PrivateRoute';
-export { default as PublicRoute } from './PublicRoute';
+export * from './PrivateRoute';
+export * from './PublicRoute';
+export * from './AuthenRoute';
 export { default as defaultHoc } from './hoc';

@@ -17,9 +17,8 @@ class Dashboard extends Component {
     render() {
         const { studentGuideList } = this.props.guide;
         const { overviewStudentList } = this.props.overview;
-        const lang = tools.getLanguage();
-        const staticText = tools.checkLanguage(lang, DashText);
 
+        const staticText = tools.checkLanguage(DashText);
         return (
             <Container fluid>
                 <Row>
@@ -31,7 +30,7 @@ class Dashboard extends Component {
 
                         <Row className="m-0 p-4">
                             <Col>
-                                <h5>{staticText.today}</h5>
+                                <h5>{staticText.toDay}</h5>
                                 <OverViewMedia mediaList={overviewStudentList}/>
                             </Col>
                         </Row>

@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 import * as tools from "../utils";
 import * as actions from "../redux/actions";
@@ -16,6 +18,7 @@ export const PublicRoute = ComposedComponent => {
             return (
                 <Fragment>
                     <ComposedComponent {...this.props} />
+                    <ToastContainer/>
                 </Fragment>
             );
         }
