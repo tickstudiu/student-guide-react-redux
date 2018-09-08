@@ -5,9 +5,17 @@ import { ToastContainer } from 'react-toastify';
 
 import * as tools from "../utils";
 import * as actions from "../redux/actions";
+import {Loader} from "../components";
 
 export const PrivateRoute = ComposedComponent => {
     class PrivateRoute extends Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                loading: true
+            }
+        }
+
         componentWillMount() {
             if (!tools.getLanguage()) {
                 tools.setDefaultLanguage();
@@ -18,8 +26,19 @@ export const PrivateRoute = ComposedComponent => {
             }
         }
 
+        componentDidMount() {
+            setTimeout(() => {
+                this.setState({loading: false})
+            }, 1500)
+        }
+
 
         render() {
+            const { loading } = this.state;
+            if (loading) {
+                return <Loader />
+            }
+
             return (
                 <Fragment>
                     <ComposedComponent {...this.props} />

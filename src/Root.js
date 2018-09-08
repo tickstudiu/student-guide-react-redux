@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {createStore,applyMiddleware} from 'redux';
-import Promise from 'redux-promise';
+import reduxThunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import reducers from './redux/reducers';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import indexRoutes from "./routes";
 
-const createStoreApplyMiddleware = applyMiddleware(Promise)(createStore);
+const createStoreApplyMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreApplyMiddleware(reducers);
 
 class Root extends Component {

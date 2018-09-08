@@ -34,10 +34,49 @@ const LoginBox = styled.div`
 
 class Login extends Component {
 
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            pwd: '',
+        }
+    }
 
-        const lang = tools.getLanguage();
+    handleChange = (event) => {
+        let name = event.target.name,
+            value = event.target.value;
+
+        this.setState({
+            [name]: value
+        });
+    };
+
+    handleSubmit = () => {
+        const {email, pwd} = this.state;
+        const profile = {
+            email,
+            pwd
+        };
+
+        if(email === '' || pwd === ''){
+            tools.errorNotify("login fail");
+        }
+        else{
+            this.props.Login(profile, async () => {
+                await this.props.history.push("/dashboard");
+            });
+        }
+    };
+
+    handleRouteToRegister = async e => {
+        await e.preventDefault();
+        await this.props.history.push("/register");
+    };
+
+    render() {
         const staticText = tools.checkLanguage(LoginText);
+        const { email,  pwd} = this.state;
+        const { handleSubmit, handleChange, handleRouteToRegister } = this;
 
         return (
             <Container fluid className="p-0" style={{
@@ -48,7 +87,14 @@ class Login extends Component {
             }}>
 
                 <LoginBox>
-                    <LoginForm text={staticText}/>
+                    <LoginForm
+                        text={staticText}
+                        email={email}
+                        pwd={pwd}
+                        handleSubmit={handleSubmit}
+                        handleChange={handleChange}
+                        handleRouteToRegister={handleRouteToRegister}
+                    />
                 </LoginBox>
 
             </Container>

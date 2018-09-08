@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
-import * as tools from '../../utils';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -27,33 +25,7 @@ const IconInput = styled.span`
 `;
 
 class LoginForm extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            pwd: '',
-        }
-    }
 
-
-    handleChange = (event) => {
-        let name = event.target.name,
-            value = event.target.value;
-
-        this.setState({
-            [name]: value
-        });
-    };
-
-    handleSubmit = () => {
-        const {email, pwd} = this.state;
-        if(email === '' || pwd === ''){
-            tools.errorNotify("login fail");
-        }
-        else{
-            {/* to do */}
-        }
-    };
 
     handleKeyPress = (e) => {
         if (e.key === 'Enter') {
@@ -62,8 +34,9 @@ class LoginForm extends Component{
     };
 
     render(){
-        const { login, email, loginTo, Remem, newHere, SignIn } = this.props.text;
-        const { handleChange, handleSubmit, handleKeyPress } = this;
+        const { login, loginTo, Remem, newHere, SignIn } = this.props.text;
+        const { handleChange, handleSubmit, handleRouteToRegister, email, pwd} = this.props;
+        const { handleKeyPress } = this;
 
         return(
             <div>
@@ -75,14 +48,14 @@ class LoginForm extends Component{
                             <IconInput>
                                 <FontAwesomeIcon icon="envelope" />
                             </IconInput>
-                            <Input type="email" name="email" placeholder={email} className="bg-transparent border-top-0 border-left-0 border-right-0 pl-5 rounded-0" onChange={handleChange}/>
+                            <Input type="email" name="email" value={email} className="bg-transparent border-top-0 border-left-0 border-right-0 pl-5 rounded-0" onChange={handleChange}/>
                         </FormGroup>
 
                         <FormGroup>
                             <IconInput>
                                 <FontAwesomeIcon icon="lock" />
                             </IconInput>
-                            <Input type="password" name="pwd" placeholder="" className="bg-transparent border-top-0 border-left-0 border-right-0 pl-5 rounded-0" onChange={handleChange} onKeyPress={handleKeyPress}/>
+                            <Input type="password" name="pwd" value={pwd} className="bg-transparent border-top-0 border-left-0 border-right-0 pl-5 rounded-0" onChange={handleChange} onKeyPress={handleKeyPress}/>
                         </FormGroup>
 
                         <a className="btn bg-dark text-white p-4 rounded-0 border-0 d-block" onClick={handleSubmit} >
@@ -101,7 +74,7 @@ class LoginForm extends Component{
                                 </Col>
                                 <Col>
                                     <FormText className="text-right">
-                                        {newHere} <Link to="/register">{SignIn}!</Link>
+                                        {newHere} <a href="#" onClick={handleRouteToRegister}>{SignIn}!</a>
                                     </FormText>
                                 </Col>
                             </Row>

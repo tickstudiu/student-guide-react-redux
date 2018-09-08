@@ -33,7 +33,7 @@ export const getUserInformation = () => {
 };
 
 export const isAuth = () => {
-    return getToken()?true:false;
+    return getToken() ? true : false;
 };
 
 export const isNotAuth = () => {
