@@ -8,3 +8,5 @@ export const FETCH_STUDENT_GUIDE = 'fetch_student_guide';
 
 export const LOGIN_ERROR = 'login_error';
 export const REGISTER_ERROR = 'register_error';
+
+export const ERROR_MSG = 'error_msg';

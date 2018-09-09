@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import * as tools from '../utils';
 import * as action from '../redux/actions';
+import * as types from '../redux/type';
 
 import {Container} from 'reactstrap';
 import {LoginForm} from '../components';
@@ -59,7 +60,7 @@ class Login extends Component {
         };
 
         if(email === '' || pwd === ''){
-            tools.errorNotify("login fail");
+            this.props.notifyMsg("login fail", types.ERROR_MSG);
         }
         else{
             this.props.Login(profile, async () => {
@@ -102,9 +103,10 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = ({lang}) => {
+const mapStateToProps = ({lang, notify}) => {
     return {
         lang,
+        notify
     }
 };
 
